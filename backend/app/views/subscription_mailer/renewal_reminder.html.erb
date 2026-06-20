@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="supported-color-schemes" content="dark">
+  <title><%= @subscription.name %> renews tomorrow</title>
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
+</head>
+<body style="margin:0;padding:0;background-color:#0D0D14;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+
+  <%# Outer wrapper %>
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#0D0D14;">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+
+        <%# Card %>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width:580px;background-color:#13131F;border-radius:12px;border:1px solid #1E1E30;overflow:hidden;">
+
+          <%# Header bar %>
+          <tr>
+            <td style="padding:28px 36px 24px;border-bottom:1px solid #1E1E30;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                  <td>
+                    <span style="font-size:18px;font-weight:700;letter-spacing:-0.3px;color:#FFFFFF;">Sub<span style="color:#6366F1;">Zero</span></span>
+                  </td>
+                  <td align="right">
+                    <span style="font-size:11px;font-weight:500;color:#4B4B6B;text-transform:uppercase;letter-spacing:0.8px;">Renewal Alert</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <%# Body %>
+          <tr>
+            <td style="padding:36px 36px 28px;">
+
+              <%# Greeting %>
+              <p style="margin:0 0 24px;font-size:14px;color:#6B6B8A;line-height:1.5;">
+                Hi <%= @user.name.split.first %>,
+              </p>
+
+              <%# Headline %>
+              <h1 style="margin:0 0 8px;font-size:24px;font-weight:700;color:#FFFFFF;letter-spacing:-0.5px;line-height:1.2;">
+                <%= @subscription.name %> renews tomorrow
+              </h1>
+              <p style="margin:0 0 32px;font-size:15px;color:#6B6B8A;line-height:1.5;">
+                Your subscription will automatically renew on <strong style="color:#A5A5C0;font-weight:500;"><%= @renewal_date %></strong>.
+              </p>
+
+              <%# Details card %>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#0D0D14;border-radius:8px;border:1px solid #1E1E30;margin-bottom:32px;">
+                <tr>
+                  <td style="padding:20px 24px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+                      <tr>
+                        <td style="padding-bottom:14px;border-bottom:1px solid #1A1A2E;">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                              <td style="font-size:12px;color:#4B4B6B;text-transform:uppercase;letter-spacing:0.6px;font-weight:500;">Subscription</td>
+                              <td align="right" style="font-size:14px;color:#FFFFFF;font-weight:600;"><%= @subscription.name %></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding:14px 0;border-bottom:1px solid #1A1A2E;">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                              <td style="font-size:12px;color:#4B4B6B;text-transform:uppercase;letter-spacing:0.6px;font-weight:500;">Amount</td>
+                              <td align="right" style="font-size:18px;color:#6366F1;font-weight:700;letter-spacing:-0.3px;"><%= @amount %></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding:14px 0;border-bottom:1px solid #1A1A2E;">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                              <td style="font-size:12px;color:#4B4B6B;text-transform:uppercase;letter-spacing:0.6px;font-weight:500;">Renewal Date</td>
+                              <td align="right" style="font-size:14px;color:#FFFFFF;font-weight:500;"><%= @renewal_date %></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-top:14px;">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                              <td style="font-size:12px;color:#4B4B6B;text-transform:uppercase;letter-spacing:0.6px;font-weight:500;">Billing Cycle</td>
+                              <td align="right" style="font-size:14px;color:#A5A5C0;font-weight:500;text-transform:capitalize;"><%= @subscription.billing_cycle %></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <% if @subscription.notes.present? %>
+              <%# Notes %>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom:32px;">
+                <tr>
+                  <td style="padding:16px 20px;background-color:#0D0D14;border-left:3px solid #6366F1;border-radius:0 6px 6px 0;">
+                    <p style="margin:0;font-size:13px;color:#6B6B8A;line-height:1.6;"><%= @subscription.notes %></p>
+                  </td>
+                </tr>
+              </table>
+              <% end %>
+
+              <%# CTA %>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="border-radius:8px;background-color:#6366F1;">
+                    <a href="<%= ENV.fetch('APP_URL', 'http://localhost:3001') %>/subscriptions/<%= @subscription.id %>"
+                       style="display:inline-block;padding:13px 28px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.1px;">
+                      View Subscription →
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <%# Footer %>
+          <tr>
+            <td style="padding:20px 36px 28px;border-top:1px solid #1E1E30;">
+              <p style="margin:0;font-size:12px;color:#3A3A52;line-height:1.6;">
+                You're receiving this because notifications are enabled for your SubZero account (<%= @user.email %>).<br>
+                To stop these emails, turn off notifications in your account settings.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <%# /Card %>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

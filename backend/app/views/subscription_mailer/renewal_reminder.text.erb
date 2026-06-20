@@ -1,0 +1,20 @@
+Hi <%= @user.name.split.first %>,
+
+Your <%= @subscription.name %> subscription renews tomorrow.
+
+RENEWAL DETAILS
+---------------
+Subscription : <%= @subscription.name %>
+Amount       : <%= @amount %>
+Renewal Date : <%= @renewal_date %>
+Billing Cycle: <%= @subscription.billing_cycle.capitalize %>
+<% if @subscription.notes.present? %>
+Notes        : <%= @subscription.notes %>
+<% end %>
+
+Manage your subscription:
+<%= ENV.fetch("APP_URL", "http://localhost:3001") %>/subscriptions/<%= @subscription.id %>
+
+---
+You're receiving this because notifications are enabled for your SubZero account (<%= @user.email %>).
+To stop these emails, disable notifications in your account settings.

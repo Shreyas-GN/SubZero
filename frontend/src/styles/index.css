@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #09090B;
+  --color-surface: #18181B;
+  --color-surface-hover: #1F1F23;
+  --color-border: #27272A;
+
+  --color-primary: #5E6AD2;
+  --color-primary-hover: #7C87F8;
+  --color-primary-focus: #818CF8;
+
+  --color-text-primary: #FAFAFA;
+  --color-text-secondary: #A1A1AA;
+  --color-text-muted: #71717A;
+
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  --font-sans: "Geist", "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Fira Code", monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #09090B;
+  color: #FAFAFA;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Geist", "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+code, pre, .font-mono {
+  font-family: "Geist Mono", "Fira Code", monospace;
+}

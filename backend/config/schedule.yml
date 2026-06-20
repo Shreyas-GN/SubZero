@@ -1,0 +1,5 @@
+daily_reminder:
+  cron: "0 8 * * *"
+  class: "DailyReminderJob"
+  queue: "default"
+  description: "Send renewal reminder emails at 8 AM UTC"

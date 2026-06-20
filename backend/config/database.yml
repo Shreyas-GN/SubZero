@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: postgres
+  host: 127.0.0.1
+  port: 5432
+
+development:
+  <<: *default
+  database: subzero_development
+
+test:
+  <<: *default
+  database: subzero_test
+
+production:
+  <<: *default
+  database: subzero_production
+  username: subzero
+  password: subzero11
